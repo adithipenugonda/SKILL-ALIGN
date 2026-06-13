@@ -11,6 +11,8 @@ import parsePDF from "./utils/pdfParser.js";
 import askAI from "./services/openRouterService.js";
 import resumeRoutes from "./routes/resumeRoutes.js";
 import curriculumRoutes from "./routes/curriculumRoutes.js";
+import companyRoutes from "./routes/companyRoutes.js";
+import roadmapRoutes from "./routes/roadmapRoutes.js";
 
 console.log("OpenRouter Key Loaded:", process.env.OPENROUTER_API_KEY?.slice(0,10));
 dotenv.config({ path: "./.env" });
@@ -35,6 +37,8 @@ app.use(
   "/api/curriculums",
   curriculumRoutes
 );
+app.use("/api/companies", companyRoutes);
+app.use("/api/roadmaps", roadmapRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
